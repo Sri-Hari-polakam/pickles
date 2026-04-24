@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Suravi Pickles</title>
+  <meta name="description" content="Get in touch with us for bulk orders, support, and inquiries.">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <i class="fas fa-pepper-hot"></i> Suravi Pickles
+      </a>
+      <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html" class="active">Contact</a>
+      </div>
+      <a href="checkout.html" class="cart-icon">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count">0</span>
+      </a>
+    </div>
+  </nav>
+
+  <header class="page-header animate-on-scroll">
+    <div class="container">
+      <h1 class="page-title">Talk to Us</h1>
+      <div class="breadcrumb">Home / Contact</div>
+    </div>
+  </header>
+
+  <section class="section container animate-on-scroll">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-6);">
+      <div>
+        <h2 class="section-title">Get in Touch</h2>
+        <p style="margin-bottom: 2rem; color: var(--text-light);">Have a bulk order, a question about our secret recipe, or need support with your tracking? Drop us a line below.</p>
+        
+        <form id="contact-form" style="background: var(--white); padding: var(--spacing-4); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+          <div class="form-group">
+            <label class="form-label">Full Name</label>
+            <input type="text" name="name" class="form-control" placeholder="Ravi Kumar" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number</label>
+            <input type="tel" name="phone" class="form-control" placeholder="+91 94943 45715" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message</label>
+            <textarea name="message" class="form-control" placeholder="How can we help you?" required></textarea>
+          </div>
+          <button type="submit" id="contact-submit-btn" class="btn btn-primary" style="width: 100%;">Send Message</button>
+        </form>
+
+        <script>
+          document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('contact-form');
+            if (form) {
+              form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const btn = document.getElementById('contact-submit-btn');
+                const originalText = btn.textContent;
+                btn.textContent = "Sending...";
+                btn.disabled = true;
+
+                const formData = new FormData(form);
+                formData.append('_subject', 'New Contact Form Message');
+                formData.append('_captcha', 'false');
+
+                const name = formData.get('name');
+                const phone = formData.get('phone');
+                const message = formData.get('message');
+
+                // 1. Send to Gmail via formsubmit.co
+                fetch("https://formsubmit.co/ajax/suravipickles@gmail.com", {
+                  method: "POST",
+                  headers: { 'Accept': 'application/json' },
+                  body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                  alert("To send message successfully | we will redirect to the WhatsApp");
+                  
+                  // 2. Redirect to WhatsApp
+                  const vjwWhatsapp = "919494345715";
+                  const waMessage = `Hello Suravi Pickles!%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Message:* ${message}`;
+                  window.open(`https://wa.me/${vjwWhatsapp}?text=${waMessage}`, '_blank');
+                  
+                  form.reset();
+                  btn.textContent = originalText;
+                  btn.disabled = false;
+                })
+                .catch(err => {
+                  alert("To send message successfully | we will redirect to the WhatsApp");
+                  const vjwWhatsapp = "919494345715";
+                  const waMessage = `Hello Suravi Pickles!%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Message:* ${message}`;
+                  window.open(`https://wa.me/${vjwWhatsapp}?text=${waMessage}`, '_blank');
+                  
+                  btn.textContent = originalText;
+                  btn.disabled = false;
+                });
+              });
+            }
+          });
+        </script>
+      </div>
+
+      <div>
+        <!-- Bulk & Global Orders Card -->
+        <div style="background: var(--white); padding: var(--spacing-4); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); margin-bottom: 2rem; border-left: 5px solid var(--accent-yellow);">
+          <h3 style="margin-bottom: 1.5rem; color: var(--primary-red);">Bulk & Global Orders</h3>
+          <p style="display: flex; align-items: start; gap: 1rem; margin-bottom: 1.2rem;">
+            <i class="fas fa-holly-berry" style="font-size: 1.5rem; color: var(--accent-yellow); margin-top: 4px;"></i>
+            <span><strong>Event Orders:</strong> We take bulk orders for marriages, festivals, and all special occasions with custom packaging.</span>
+          </p>
+          <p style="display: flex; align-items: start; gap: 1rem; margin-bottom: 1.5rem;">
+            <i class="fas fa-globe-americas" style="font-size: 1.5rem; color: var(--accent-yellow); margin-top: 4px;"></i>
+            <span><strong>Worldwide Shipping:</strong> Now shipping globally! We help you send the authentic taste of Andhra to your loved ones in other countries.</span>
+          </p>
+          <a href="https://wa.me/919494345715?text=Hello! I'm interested in placing a bulk/international order." target="_blank" class="btn btn-outline" style="width: 100%; border-color: var(--accent-yellow); color: var(--text-dark);">
+            <i class="fas fa-info-circle"></i> Inquire for Bulk Orders
+          </a>
+        </div>
+
+        <div style="background: var(--white); padding: var(--spacing-4); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); margin-bottom: 2rem; border-left: 5px solid var(--accent-yellow);">
+          <h3 style="margin-bottom: 1.5rem; color: var(--primary-red);">Direct Support</h3>
+          <p style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;"><i class="fas fa-user" style="font-size: 1.5rem; color: var(--accent-yellow)"></i> P. Kavya Sri</p>
+          <p style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;"><i class="fas fa-map-marker-alt" style="font-size: 1.5rem; color: var(--accent-yellow)"></i> 66-3-12, marri chettu centre, ntr circle, patamata, vjw 520010</p>
+          <p style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;"><i class="fas fa-envelope" style="font-size: 1.5rem; color: var(--accent-yellow)"></i> <a href="mailto:suravipickles@gmail.com" style="color: inherit; text-decoration: none;">suravipickles@gmail.com</a></p>
+          <p style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;"><i class="fas fa-phone" style="font-size: 1.5rem; color: var(--accent-yellow)"></i> <a href="tel:+919494345715" style="color: inherit; text-decoration: none;">+91 94943 45715</a></p>
+          
+          <a href="https://wa.me/919494345715" target="_blank" class="btn btn-whatsapp" style="width: 100%;">
+            <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="copyright" style="border:none; padding-top: 0">
+        <p>&copy; 2026 Suravi Pickles. Crafted with love and spice.</p>
+        <p style="margin-top: 0.5rem; opacity: 0.7; font-size: 0.9rem;">
+          Website designed by 
+          <a href="https://www.instagram.com/funniii_media" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">@funniii_media</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/919494345715" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script src="js/cart.js" type="module"></script>
+  <script src="js/firebase-init.js" type="module"></script>
+  <script src="js/app.js" defer></script>
+</body>
+
+</html>

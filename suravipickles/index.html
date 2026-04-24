@@ -1,0 +1,348 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suravi Pickles | Authentic Homemade Traditions</title>
+  <meta name="description"
+    content="Discover the authentic taste of homemade traditional Indian pickles delivered fresh to your door. Explore our Mango, Chicken, and Gongura pickles.">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print"
+    onload="this.media='all'">
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <i class="fas fa-pepper-hot"></i> Suravi Pickles
+      </a>
+      <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+      <div class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <a href="checkout.html" class="cart-icon">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count">0</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <img src="images/vijayawada_pickle_hero.png" alt="Traditional Indian Pickles" class="hero-bg" fetchpriority="high">
+    <div class="hero-overlay"></div>
+    <!-- Clickable Delivery Tag -->
+    <a href="products.html" class="delivery-link" title="Shop All Products">
+      <div class="delivery-sticker">
+        <span>FREE DELIVERY</span>
+        <span class="highlight">ABOVE ₹999</span>
+        <span class="small">Tap to Shop</span>
+      </div>
+    </a>
+    <div class="container">
+      <div class="hero-content">
+        <span class="hero-subtitle">Taste the Tradition</span>
+        <h1>Authentic Homemade Pickles Delivered Fresh</h1>
+        <p>Experience the traditional flavors of Andhra with our fiery, aromatic, and perfectly aged homemade recipes.
+          Made with love and the finest ingredients.</p>
+        <div style="display: flex; gap: 1rem;">
+          <a href="products.html" class="btn btn-primary">Shop Now</a>
+          <a href="about.html" class="btn btn-outline" style="border-color: white; color: white;">Our Story</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Features Band -->
+  <div class="features-band">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-item">
+          <i class="fas fa-leaf feature-icon"></i>
+          <span>100% Homemade</span>
+        </div>
+        <div class="feature-item">
+          <i class="fas fa-shield-alt feature-icon"></i>
+          <span>Hygienic Preparation</span>
+        </div>
+        <div class="feature-item">
+          <i class="fas fa-truck feature-icon"></i>
+          <span>Delivered with Care</span>
+        </div>
+        <div class="feature-item">
+          <i class="fas fa-lock feature-icon"></i>
+          <span>Secure Payment</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Featured Products Section -->
+  <section class="section container animate-on-scroll">
+    <div class="section-header">
+      <h2 class="section-title">Our Best Sellers</h2>
+      <p>Handpicked favorites loved by our customers.</p>
+    </div>
+    <div class="product-grid">
+      <!-- Product 1 (Veg) -->
+      <div class="product-card" data-category="veg">
+        <div class="product-img-wrap">
+          <div class="product-badges"><span class="badge badge-veg">Veg</span></div>
+          <img src="images/veg_mango_pickle.png" alt="Mango Pickle" class="product-img" loading="lazy">
+        </div>
+        <div class="product-content">
+          <h3 class="product-title">Mango Pickle</h3>
+          <p class="product-desc">Pure Indian style **thick red and spicy** Avakaya with **medium-sized pieces** in a
+            glass jar.</p>
+          <div class="product-price-row" style="flex-wrap: wrap; gap: 0.8rem;">
+            <select class="size-select"
+              style="padding: 0.3rem; border-radius: 4px; border: 1px solid #ccc; font-family: inherit;"
+              onchange="this.parentElement.querySelector('.product-price').textContent = '₹' + this.value;">
+              <option value="169">1/4 KG</option>
+              <option value="319">1/2 KG</option>
+              <option value="599">1 KG</option>
+            </select>
+            <span class="product-price">₹169</span>
+            <button class="btn btn-primary add-to-cart-btn" data-id="v7" data-name="Mango Pickle" data-price="169"
+              data-image="images/veg_mango_pickle.png" style="width: 100%;">
+              <i class="fas fa-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Product 2 (Non-Veg) -->
+      <div class="product-card" data-category="non-veg">
+        <div class="product-img-wrap">
+          <div class="product-badges"><span class="badge badge-nonveg">Non-Veg</span></div>
+          <img src="images/nonveg_chicken_pickle.png" alt="Chicken Pickle" class="product-img" loading="lazy">
+        </div>
+        <div class="product-content">
+          <h3 class="product-title">Chicken Pickle</h3>
+          <p class="product-desc">Authentic homemade Chicken Pickle—**pure Indian red spicy** style with **small
+            pieces**.</p>
+          <div class="product-price-row" style="flex-wrap: wrap; gap: 0.8rem;">
+            <select class="size-select"
+              style="padding: 0.3rem; border-radius: 4px; border: 1px solid #ccc; font-family: inherit;"
+              onchange="this.parentElement.querySelector('.product-price').textContent = '₹' + this.value;">
+              <option value="289">1/4 KG</option>
+              <option value="559">1/2 KG</option>
+              <option value="1099">1 KG</option>
+            </select>
+            <span class="product-price">₹289</span>
+            <button class="btn btn-primary add-to-cart-btn" data-id="nv1" data-name="Chicken Pickle" data-price="289"
+              data-image="images/nonveg_chicken_pickle.png" style="width: 100%;">
+              <i class="fas fa-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Product 3 (Sweet) -->
+      <div class="product-card" data-category="sweets">
+        <div class="product-img-wrap">
+          <div class="product-badges"><span class="badge" style="background:#e67e22; color:white">Sweets</span></div>
+          <img src="images/sweet_kajju_sunnunda.png" alt="Kajju Overloaded Sunnunda" class="product-img" loading="lazy">
+        </div>
+        <div class="product-content">
+          <h3 class="product-title">Kajju Sunnunda</h3>
+          <p class="product-desc">Authentic traditional Sunnunda, rich in ghee with a **smooth texture and cashew
+            bits**.</p>
+          <div class="product-price-row" style="flex-wrap: wrap; gap: 0.8rem;">
+            <select class="size-select"
+              style="padding: 0.3rem; border-radius: 4px; border: 1px solid #ccc; font-family: inherit;"
+              onchange="this.parentElement.querySelector('.product-price').textContent = '₹' + this.value;">
+              <option value="239">1/4 KG</option>
+              <option value="469">1/2 KG</option>
+              <option value="859">1 KG</option>
+            </select>
+            <span class="product-price">₹239</span>
+            <button class="btn btn-primary add-to-cart-btn" data-id="sw1" data-name="Kajju Overloaded Sunnunda"
+              data-price="239" data-image="images/sweet_kajju_sunnunda.png" style="width: 100%;">
+              <i class="fas fa-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Product 4 (Powder) -->
+      <div class="product-card" data-category="powders">
+        <div class="product-img-wrap">
+          <div class="product-badges"><span class="badge"
+              style="background:var(--accent-yellow); color:var(--text-dark)">Powder</span></div>
+          <img src="images/nallakaram.png" alt="Nallakaram" class="product-img" loading="lazy">
+        </div>
+        <div class="product-content">
+          <h3 class="product-title">Nallakaram</h3>
+          <p class="product-desc">Classic traditional homemade Nallakaram ground perfectly for idly or dosa.</p>
+          <div class="product-price-row" style="flex-wrap: wrap; gap: 0.8rem;">
+            <select class="size-select"
+              style="padding: 0.3rem; border-radius: 4px; border: 1px solid #ccc; font-family: inherit;"
+              onchange="this.parentElement.querySelector('.product-price').textContent = '₹' + this.value;">
+              <option value="159">1/4 KG</option>
+              <option value="299">1/2 KG</option>
+              <option value="599">1 KG</option>
+            </select>
+            <span class="product-price">₹159</span>
+            <button class="btn btn-primary add-to-cart-btn" data-id="pd1" data-name="Nallakaram" data-price="159"
+              data-image="images/nallakaram.png" style="width: 100%;">
+              <i class="fas fa-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: var(--spacing-4);">
+      <a href="products.html" class="btn btn-outline">View All Flavors</a>
+    </div>
+  </section>
+
+  <!-- Customer Reviews Section -->
+  <section class="section reviews-section animate-on-scroll">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">What Our Customers Say</h2>
+        <p>Real stories from our pickle-loving community.</p>
+      </div>
+      <div class="reviews-grid">
+        <!-- Review 1 -->
+        <div class="review-card">
+          <i class="fas fa-quote-left quote-icon"></i>
+          <div class="review-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <h3 class="review-headline">“Absolutely delicious!”</h3>
+          <p class="review-text">“These pickles remind me of homemade flavors from my childhood. Fresh, perfectly
+            spiced, and full of authentic Andhra taste. Highly recommended!”</p>
+          <div class="customer-meta">
+            <img src="images/hari.jpeg" alt="Sri Hari" class="customer-img" loading="lazy">
+            <span class="customer-name">Sri Hari</span>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="review-card">
+          <i class="fas fa-quote-left quote-icon"></i>
+          <div class="review-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <h3 class="review-headline">“Perfect balance of taste”</h3>
+          <p class="review-text">“I’ve tried many brands, but these pickles truly stand out. Rich flavor, not too oily,
+            and very fresh. Goes perfectly with every meal!”</p>
+          <div class="customer-meta">
+            <img src="images/geetha.jpeg" alt="Geetha" class="customer-img" loading="lazy">
+            <span class="customer-name">Geetha</span>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="review-card">
+          <i class="fas fa-quote-left quote-icon"></i>
+          <div class="review-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <h3 class="review-headline">“Feels like home in every bite”<j /h3>
+              <p class="review-text">“The quality is amazing and you can really taste the natural ingredients. It feels
+                like
+                homemade pickles prepared with love.”</p>
+              <div class="customer-meta">
+                <img src="images/jabba.jpeg" alt="Phani" class="customer-img" loading="lazy">
+                <span class="customer-name">Phani</span>
+              </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gift Banner Section -->
+  <section class="gift-banner animate-on-scroll">
+    <div class="gift-banner-bg"></div>
+    <div class="gift-banner-overlay"></div>
+    <div class="container">
+      <div class="gift-banner-content">
+        <span class="gift-banner-small">Homemade Pickles</span>
+        <h2 class="gift-banner-title">Give the Gift of Authentic Taste</h2>
+        <p class="gift-banner-text">Surprise your loved ones with rich, homemade pickles crafted with tradition, fresh
+          ingredients, and love in every jar.</p>
+        <a href="products.html" class="btn btn-primary">Gift Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3><i class="fas fa-pepper-hot"></i> Suravi Pickles</h3>
+          <p style="margin-top: 1rem; opacity: 0.8; line-height: 1.8;">Authentic, homely, trustworthy, and flavorful.
+            Bringing the rich culinary heritage of Andhra straight to your dining table.</p>
+          <div class="social-links">
+            <a href="https://www.instagram.com/suravi.pickles?utm_source=qr&igsh=MWhzczlmYW9jbWNleg=="
+              class="social-icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@Suravipickles" class="social-icon" target="_blank"
+              rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">All Products</a></li>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Contact Info</h3>
+          <ul class="footer-links" style="opacity: 0.8;">
+            <li><i class="fas fa-user"></i> P. Kavya Sri</li>
+            <li><i class="fas fa-map-marker-alt"></i> 66-3-12, marri chettu centre, ntr circle, patamata,vijayawada
+              ,Andhra pradesh,520010.
+            </li>
+            <li><i class="fas fa-phone"></i> <a href="tel:+919494345715">+91 94943 45715</a></li>
+            <li><i class="fas fa-envelope" style="margin-right: 0.5rem; color: var(--accent-yellow);"></i> <a
+                href="mailto:suravipickles@gmail.com">suravipickles@gmail.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2026 Suravi Pickles. All Rights Reserved. Crafted with love and spice.</p>
+        <p style="margin-top: 0.5rem; opacity: 0.7; font-size: 0.9rem;">
+          Website designed by
+          <a href="https://www.instagram.com/funniii_media" target="_blank" rel="noopener noreferrer"
+            style="color: inherit; text-decoration: underline;">@funniii_media</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/919494345715" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script src="js/cart.js" type="module"></script>
+  <script src="js/firebase-init.js" type="module"></script>
+  <script src="js/app.js" defer></script>
+</body>
+
+</html>

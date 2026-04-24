@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Successful | Suravi Pickles</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="display: flex; flex-direction: column; min-height: 100vh; background-color: #f9f9f9;">
+  
+  <nav class="navbar" style="background: white; border-bottom: 1px solid #eee;">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <i class="fas fa-pepper-hot"></i> Suravi Pickles
+      </a>
+    </div>
+  </nav>
+
+  <div class="container" style="flex: 1; display: flex; justify-content: center; align-items: center; padding: 3rem 1rem;">
+    <div class="glass-panel" style="text-align: center; max-width: 500px; padding: 3rem 2rem;">
+      <i class="fas fa-check-circle" style="font-size: 5rem; color: #28a745; margin-bottom: 1.5rem;"></i>
+      <h1 style="color: #333; margin-bottom: 1rem;">Payment Successful!</h1>
+      <p style="color: #666; font-size: 1.1rem; margin-bottom: 2rem;">Thank you for your order. We have received your payment securely.</p>
+      
+      <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; border: 1px dashed #ddd;">
+        <p style="margin: 0; color: #555;">Transaction ID:</p>
+        <strong id="txnIdDisplay" style="font-size: 1.2rem; color: #333; word-break: break-all;">Loading...</strong>
+      </div>
+
+      <button id="whatsappBtn" class="btn btn-primary" style="width: 100%; font-size: 1.1rem;">
+        <i class="fab fa-whatsapp"></i> Update us on WhatsApp
+      </button>
+    </div>
+  </div>
+
+  <script src="js/firebase-init.js" type="module"></script>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const txnId = urlParams.get('txnId') || 'Unknown';
+    document.getElementById('txnIdDisplay').textContent = txnId;
+
+    document.getElementById('whatsappBtn').addEventListener('click', () => {
+      // Clear cart
+      localStorage.removeItem('suravi_pickles_cart');
+      const msg = `Hi Suravi Pickles! I just completed my payment successfully. My Transaction ID is: ${txnId}.`;
+      window.location.href = `https://wa.me/919494345715?text=${encodeURIComponent(msg)}`;
+    });
+    
+    // Auto-clear cart on successful landing
+    localStorage.removeItem('suravi_pickles_cart');
+  </script>
+</body>
+</html>

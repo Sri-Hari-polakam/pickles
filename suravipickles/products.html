@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products | Suravi Pickles</title>
+  <meta name="description"
+    content="Shop authentic homemade Andhra pickles. Vegetarian, Non-Vegetarian, and Traditional Powders.">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print"
+    onload="this.media='all'">
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <i class="fas fa-pepper-hot"></i> Suravi Pickles
+      </a>
+      <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="products.html" class="active">Products</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <a href="checkout.html" class="cart-icon">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count">0</span>
+      </a>
+    </div>
+  </nav>
+
+  <header class="page-header animate-on-scroll">
+    <div class="container">
+      <h1 class="page-title">Our Pickles & Powders</h1>
+      <div class="breadcrumb">Home / Products</div>
+    </div>
+  </header>
+
+  <section class="section container">
+    <div class="filters" style="margin-bottom: 3rem;">
+      <button class="filter-btn active" data-filter="all">All Products</button>
+      <button class="filter-btn" data-filter="veg">Veg Pickles</button>
+      <button class="filter-btn" data-filter="non-veg">Non-Veg Pickles</button>
+      <button class="filter-btn" data-filter="powders">Powders</button>
+      <button class="filter-btn" data-filter="sweets">Home Made Sweets</button>
+    </div>
+
+    <div class="product-grid" id="products-grid">
+      <!-- VEG PICKLES (8) -->
+      <div class="product-card" data-category="veg">
+        <div class="product-img-wrap">
+          <div class="product-badges"><span class="badge badge-veg">Veg</span></div>
+          <img src="images/veg_amla_pickle.png" alt="Amla Pickle" class="product-img" loading="lazy">
+        </div>
+        <div class="product-content">
+          <h3 class="product-title">Amla Pickle</h3>
+          <p class="product-desc">Pure Indian style **extra red and spicy** Amla with **small pieces** in a premium
+            glass jar.</p>
+          <div class="product-price-row" style="flex-wrap: wrap; gap: 0.8rem;">
+            <select class="size-select"
+              style="padding: 0.3rem; border-radius: 4px; border: 1px solid #ccc; font-family: inherit;"
+              onchange="this.parentElement.querySelector('.product-price').textContent = '₹' + this.value;">
+              <option value="169">1/4 KG</option>
+              <option value="319">1/2 KG</option>
+              <option value="599">1 KG</option>
+            </select>
+            <span class="product-price">₹169</span>
+            <button class="btn btn-primary add-to-cart-btn" data-id="v1" data-name="Amla Pickle" data-price="169"
+              data-image="images/veg_amla_pickle.png" style="width: 100%;">
+              <i class="fas fa-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" data-category="veg">
+        <div class="product-img-wrap">
+          <div class="product-badges"><span class="badge badge-veg">Veg</span></div>
+          <img src="images/veg_tomato_pickle.png" alt="Tomato Pickle" class="product-img" loading="lazy">
+        </div>
+        <div class="product-content">
+          <h3 class="product-title">Tomato Pickle</h3>
+          <p class="product-desc">Sun-dried tomatoes with **finely chopped** bits in a glass jar.</p>
+          <div class="product-price-row" style="flex-wrap: wrap; gap: 0.8rem;">
+            <select class="size-select"
+              style="padding: 0.3rem; border-radius: 4px; border: 1px solid #ccc; font-family: inherit;"
+              onchange="this.parentElement.querySelector('.product-price').textContent = '₹' + this.value;">
+              <option value="169">1/4 KG</option>
+              <option value="319">1/2 KG</option>
+              <option value="599">1 KG</option>
+            </select>
+            <span class="product-price">₹169</span>
+            <button class="btn btn-primary add-to-cart-btn" data-id="v2" data-name="Tomato Pickle" data-price="169"
+              data-image="images/veg_tomato_pickle.png" style="width: 100%;">
+              <i class="fas fa-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" data-category="veg">
+        <div class="product-img-wrap">
+          <div class="product-badges"><span class="badge badge-veg">Veg</span></div>
+          <img src="images/veg_lemon_pickle.png" alt="Lemon Pickle" class="product-img" loading="lazy">
+        </div>
+        <div class="product-content">
+          <h3 class="product-title">Lemon Pickle</h3>
+          <p class="product-desc">Pure Indian style **thick red and spicy** Lemon with **medium-sized pieces** in a
+            glass jar.</p>
+          <div class="product-price-row" style="flex-wrap: wrap; gap: 0.8rem;">
+            <select class="size-select"
+              style="padding: 0.3rem; border-radius: 4px; border: 1px solid #ccc; font-family: inherit;"
+              onchange="this.parentElement.querySelector('.product-price').textContent = '₹' + this.value;">
+              <option value="169">1/4 KG</option>
+              <option value="319">1/2 KG</option>
+              <option value="599">1 KG</option>
+            </select>
+            <span class="product-price">₹169</span>
+            <button class="btn btn-primary add-to-cart-btn" data-id="v3" data-name="Lemon Pickle" data-price="169"
+              data-image="images/veg_lemon_pickle.png" style="width: 100%;">
+              <i class="fas fa-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" data-category="veg">
+        <div class="product-img-wrap">
+          <div class="product-badges"><span class="badge badge-veg">Veg</span></div>
+          <img src="images/veg_ginger_pickle.png" alt="Ginger Pickle" class="product-img" loading="lazy">
+        </div>
+        <div class="product-content">
+          <h3 class="product-title">Ginger Pickle</h3>
+          <p class="product-desc">Pure Indian style **plain red spicy paste** Ginger with a **dense, smooth texture** in
+            a glass jar.</p>
+          <div class="product-price-row" style="flex-wrap: wrap; gap: 0.8rem;">
+            <select class="size-select"
+              style="padding: 0.3rem; border-radius: 4px; border: 1px solid #ccc; font-family: inherit;"
+              onchange="this.parentElement.querySelector('.product-price').textContent = '₹' + this.value;">
+              <option value="169">1/4 KG</option>
+              <option value="319">1/2 KG</option>
+              <option value="599">1 KG</option>
+            </select>
+            <span class="product-price">₹169</span>
+            <button class="btn btn-primary add-to-cart-btn" data-id="v4" data-name="Ginger Pickle" data-price="169"
+              data-image="images/veg_ginger_pickle.png" style="width: 100%;">
+              <i class="fas fa-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" data-category="veg">
+        <div class="product-img-wrap">
+          <div class="product-badges"><span class="badge badge-veg">Veg</span></div>
+          <img src="images/veg_gongura_chilli_pickle.png" alt="Gongura Mirchi" class="product-img" loading="lazy">
+        </div>
+        <div class="product-content">
+          <h3 class="product-title">Gongura Mirchi</h3>
+          <p class="product-desc">Authentic **dark maroon** Gongura mirchi with **subtle green bits** of sorrel leaves
+            in a glass jar.</p>
+          <div class="product-price-row" style="flex-wrap: wrap; gap: 0.8rem;">
+            <select class="size-select"
+              style="padding: 0.3rem; border-radius: 4px; border: 1px solid #ccc; font-family: inherit;"
+              onchange="this.parentElement.querySelector('.product-price').textContent = '₹' + this.value;">
+              <option value="169">1/4 KG</option>
+              <option value="319">1/2 KG</option>
+              <option value="599">1 KG</option>
+            </select>
+            <span class="product-price">₹169</span>
+            <button class="btn btn-primary add-to-cart-btn" data-id="v5" data-name="Gongura Mirchi" data-price="169"
+              data-image="images/veg_gongura_chilli_pickle.png" style="width: 100%;">
+              <i class="fas fa-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" data-category="veg">
+        <div class="product-img-wrap">
+          <div class="product-badges"><span class="badge badge-veg">Veg</span></div>
+          <img src="images/veg_gongura_pandu_pickle.png" alt="Gongura Pandumirchi" class="product-img" loading="lazy">
+        </div>
+        <div class="product-content">
+          <h3 class="product-title">Gongura Pandumirchi</h3>
+          <p class="product-desc">Premium **pure red spicy** Gongura Pandumirchi with **tiny bits** in a glass jar.</p>
+          <div class="product-price-row" style="flex-wrap: wrap; gap: 0.8rem;">
+            <select class="size-select"
+              style="padding: 0.3rem; border-radius: 4px; border: 1px solid #ccc; font-family: inherit;"
+              onchange="this.parentElement.querySelector('.product-price').textContent = '₹' + this.value;">
+              <option value="169">1/4 KG</option>
+              <option value="319">1/2 KG</option>
+              <option value="599">1 KG</option>
+            </select>
+            <span class="product-price">₹169</span>
+            <button class="btn btn-primary add-to-cart-btn" data-id="v6" data-name="Gongura Pandumirchi"
+              data-price="169" data-image="images/veg_gongura_pandu_pickle.png" style="width: 100%;">
+              <i class="fas fa-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" data-category="veg">
+        <div class="product-img-wrap">
+          <div class="product-badges"><span class="badge badge-veg">Veg</span></div>
+          <img src="images/veg_mango_pickle.png" alt="Mango Pickle" class="product-img" loading="lazy">
+        </div>
+        <div class="product-content">
+          <h3 class="product-title">Mango Pickle</h3>
+          <p class="product-desc">Pure Indian style **thick red and spicy** Avakaya with **medium-sized pieces** in a
+            glass jar.</p>
+          <div class="product-price-row" style="flex-wrap: wrap; gap: 0.8rem;">
+            <select class="size-select"
+              style="padding: 0.3rem; border-radius: 4px; border: 1px solid #ccc; font-family: inherit;"
+              onchange="this.parentElement.querySelector('.product-price').textContent = '₹' + this.value;">
+              <option value="169">1/4 KG</option>
+              <option value="319">1/2 KG</option>
+              <option value="599">1 KG</option>
+            </select>
+            <span class="product-price">₹169</span>
+            <button class="btn btn-primary add-to-cart-btn" data-id="v7" data-name="Mango Pickle" data-price="169"
+              data-image="images/veg_mango_pickle.png" style="width: 100%;">
+              <i class="fas fa-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" data-category="veg">
+        <div class="product-img-wrap">
+          <div class="product-badges"><span class="badge badge-veg">Veg</span></div>
+          <img src="images/veg_mixed_pickle.png" alt="Mixed Veg Pickle" class="product-img" loading="lazy">
+        </div>
+        <div class="product-content">
+          <h3 class="product-title">Mixed Veg Pickle</h3>
+          <p class="product-desc">Pure Indian style **thick red and spicy** mixed vegetables with **medium-sized
+            pieces** in a glass jar.</p>
+          <div class="product-price-row" style="flex-wrap: wrap; gap: 0.8rem;">
+            <select class="size-select"
+              style="padding: 0.3rem; border-radius: 4px; border: 1px solid #ccc; font-family: inherit;"
+              onchange="this.parentElement.querySelector('.product-price').textContent = '₹' + this.value;">
+              <option value="169">1/4 KG</option>
+              <option value="319">1/2 KG</option>
+              <option value="599">1 KG</option>
+            </select>
+            <span class="product-price">₹169</span>
+            <button class="btn btn-primary add-to-cart-btn" data-id="v8" data-name="Mixed Veg Pickle" data-price="169"
+              data-image="images/veg_mixed_pickle.png" style="width: 100%;">
+              <i class="fas fa-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" data-category="veg">
+        <div class="product-img-wrap">
+          <div class="product-badges"><span class="badge badge-veg">Veg</span></div>
+          <img src="images/veg_kakarakai_pickle.png" alt="Kakarakai Pickle" class="product-img" loading="lazy">
+        </div>
+        <div class="product-content">
+          <h3 class="product-title">Kakarakai Pickle</h3>
+          <p class="product-desc">Pure Indian style **thick red and spicy** Kakarakai (Bitter Gourd) with **medium-sized pieces** in a glass jar.</p>
+          <div class="product-price-row" style="flex-wrap: wrap; gap: 0.8rem;">
+            <select class="size-select"
+              style="padding: 0.3rem; border-radius: 4px; border: 1px solid #ccc; font-family: inherit;"
+              onchange="this.parentElement.querySelector('.product-price').textContent = '₹' + this.value;">
+              <option value="169">1/4 KG</option>
+              <option value="319">1/2 KG</option>
+              <option value="599">1 KG</option>
+            </select>
+            <span class="product-price">₹169</span>
+            <button class="btn btn-primary add-to-cart-btn" data-id="v9" data-name="Kakarakai Pickle" data-price="169"
+              data-image="images/veg_kakarakai_pickle.png" style="width: 100%;">
+              <i class="fas fa-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- NON-VEG PICKLES (6) -->
+      <div class="product-card" data-category="non-veg">
+        <div class="product-img-wrap">
+          <div class="product-badges"><span class="badge badge-nonveg">Non-Veg</span></div>
+          <img src="images/nonveg_chicken_pickle.png" alt="Chicken Pickle" class="product-img" loading="lazy">
+        </div>
+        <div class="product-content">
+          <h3 class="product-title">Chicken Pickle</h3>
+          <p class="product-desc">Homemade Chicken Pickle with **small pieces** in a premium glass jar.</p>
+          <div class="product-price-row" style="flex-wrap: wrap; gap: 0.8rem;">
+            <select class="size-select"
+              style="padding: 0.3rem; border-radius: 4px; border: 1px solid #ccc; font-family: inherit;"
+              onchange="this.parentElement.querySelector('.product-price').textContent = '₹' + this.value;">
+              <option value="289">1/4 KG</option>
+              <option value="559">1/2 KG</option>
+              <option value="1099">1 KG</option>
+            </select>
+            <span class="product-price">₹289</span>
+            <button class="btn btn-primary add-to-cart-btn" data-id="nv1" data-name="Chicken Pickle" data-price="289"
+              data-image="images/nonveg_chicken_pickle.png" style="width: 100%;">
+              <i class="fas fa-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" data-category="non-veg">
+        <div class="product-img-wrap">
+          <div class="product-badges"><span class="badge badge-nonveg">Non-Veg</span></div>
+          <img src="images/nonveg_gongura_chicken.png" alt="Gongura Chicken" class="product-img" loading="lazy">
+        </div>
+        <div class="product-content">
+          <h3 class="product-title">Gongura Chicken</h3>
+          <p class="product-desc">Authentic **dark green** Gongura Chicken with **small pieces** in a premium glass jar.
+          </p>
+          <div class="product-price-row" style="flex-wrap: wrap; gap: 0.8rem;">
+            <select class="size-select"
+              style="padding: 0.3rem; border-radius: 4px; border: 1px solid #ccc; font-family: inherit;"
+              onchange="this.parentElement.querySelector('.product-price').textContent = '₹' + this.value;">
+              <option value="289">1/4 KG</option>
+              <option value="559">1/2 KG</option>
+              <option value="1099">1 KG</option>
+            </select>
+            <span class="product-price">₹289</span>
+            <button class="btn btn-primary add-to-cart-btn" data-id="nv2" data-name="Gongura Chicken" data-price="289"
+              data-image="images/nonveg_gongura_chicken.png" style="width: 100%;">
+              <i class="fas fa-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" data-category="non-veg">
+        <div class="product-img-wrap">
+          <div class="product-badges"><span class="badge badge-nonveg">Non-Veg</span></div>
+          <img src="images/nonveg_chicken_boneless.png" alt="Chicken Boneless" class="product-img" loading="lazy">
+        </div>
+        <div class="product-content">
+          <h3 class="product-title">Chicken Boneless</h3>
+          <p class="product-desc">Succulent boneless chicken **small chunks** preserved in a glass jar.</p>
+          <div class="product-price-row" style="flex-wrap: wrap; gap: 0.8rem;">
+            <select class="size-select"
+              style="padding: 0.3rem; border-radius: 4px; border: 1px solid #ccc; font-family: inherit;"
+              onchange="this.parentElement.querySelector('.product-price').textContent = '₹' + this.value;">
+              <option value="369">1/4 KG</option>
+              <option value="719">1/2 KG</option>
+              <option value="1399">1 KG</option>
+            </select>
+            <span class="product-price">₹369</span>
+            <button class="btn btn-primary add-to-cart-btn" data-id="nv3" data-name="Chicken Boneless" data-price="369"
+              data-image="images/nonveg_chicken_boneless.png" style="width: 100%;">
+              <i class="fas fa-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" data-category="non-veg">
+        <div class="product-img-wrap">
+          <div class="product-badges"><span class="badge badge-nonveg">Non-Veg</span></div>
+          <img src="images/nonveg_mutton_boneless_pickle.png" alt="Mutton Boneless" class="product-img" loading="lazy">
+        </div>
+        <div class="product-content">
+          <h3 class="product-title">Mutton Boneless</h3>
+          <p class="product-desc">Succulent **Mutton Boneless** with **tiny chunks** in a luxury glass jar.</p>
+          <div class="product-price-row" style="flex-wrap: wrap; gap: 0.8rem;">
+            <select class="size-select"
+              style="padding: 0.3rem; border-radius: 4px; border: 1px solid #ccc; font-family: inherit;"
+              onchange="this.parentElement.querySelector('.product-price').textContent = '₹' + this.value;">
+              <option value="589">1/4 KG</option>
+              <option value="1149">1/2 KG</option>
+              <option value="2199">1 KG</option>
+            </select>
+            <span class="product-price">₹589</span>
+            <button class="btn btn-primary add-to-cart-btn" data-id="nv4" data-name="Mutton Boneless" data-price="589"
+              data-image="images/nonveg_mutton_boneless_pickle.png" style="width: 100%;">
+              <i class="fas fa-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="non-veg">
+        <div class="product-img-wrap">
+          <div class="product-badges"><span class="badge badge-nonveg">Non-Veg</span></div>
+          <img src="images/nonveg_prawn_pickle.png" alt="Prawn Pickle" class="product-img" loading="lazy">
+        </div>
+        <div class="product-content">
+          <h3 class="product-title">Prawn Pickle</h3>
+          <p class="product-desc">Coastal prawns **small chunks** in a spicy masala glass jar.</p>
+          <div class="product-price-row" style="flex-wrap: wrap; gap: 0.8rem;">
+            <select class="size-select"
+              style="padding: 0.3rem; border-radius: 4px; border: 1px solid #ccc; font-family: inherit;"
+              onchange="this.parentElement.querySelector('.product-price').textContent = '₹' + this.value;">
+              <option value="499">1/4 KG</option>
+              <option value="999">1/2 KG</option>
+              <option value="1999">1 KG</option>
+            </select>
+            <span class="product-price">₹499</span>
+            <button class="btn btn-primary add-to-cart-btn" data-id="nv6" data-name="Prawn Pickle" data-price="499"
+              data-image="images/nonveg_prawn_pickle.png" style="width: 100%;">
+              <i class="fas fa-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- POWDERS (7) -->
+      <div class="product-card" data-category="powders">
+        <div class="product-img-wrap">
+          <div class="product-badges"><span class="badge"
+              style="background:var(--accent-yellow); color:var(--text-dark)">Powder</span></div>
+          <img src="images/nallakaram.png" alt="Nallakaram" class="product-img" loading="lazy">
+        </div>
+        <div class="product-content">
+          <h3 class="product-title">Nallakaram</h3>
+          <p class="product-desc">Classic traditional Nallakaram ground perfectly.</p>
+          <div class="product-price-row" style="flex-wrap: wrap; gap: 0.8rem;">
+            <select class="size-select"
+              style="padding: 0.3rem; border-radius: 4px; border: 1px solid #ccc; font-family: inherit;"
+              onchange="this.parentElement.querySelector('.product-price').textContent = '₹' + this.value;">
+              <option value="159">1/4 KG</option>
+              <option value="299">1/2 KG</option>
+              <option value="599">1 KG</option>
+            </select>
+            <span class="product-price">₹159</span>
+            <button class="btn btn-primary add-to-cart-btn" data-id="pd1" data-name="Nallakaram" data-price="159"
+              data-image="images/nallakaram.png" style="width: 100%;">
+              <i class="fas fa-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" data-category="powders">
+        <div class="product-img-wrap">
+          <div class="product-badges"><span class="badge"
+              style="background:var(--accent-yellow); color:var(--text-dark)">Powder</span></div>
+          <img src="images/nuvvulu.png" alt="Nuvvulapodi" class="product-img" loading="lazy">
+        </div>
+        <div class="product-content">
+          <h3 class="product-title">Nuvvulapodi</h3>
+          <p class="product-desc">Finely ground sesame spice blend perfect for hot rice.</p>
+          <div class="product-price-row" style="flex-wrap: wrap; gap: 0.8rem;">
+            <select class="size-select"
+              style="padding: 0.3rem; border-radius: 4px; border: 1px solid #ccc; font-family: inherit;"
+              onchange="this.parentElement.querySelector('.product-price').textContent = '₹' + this.value;">
+              <option value="169">1/4 KG</option>
+              <option value="319">1/2 KG</option>
+              <option value="619">1 KG</option>
+            </select>
+            <span class="product-price">₹169</span>
+            <button class="btn btn-primary add-to-cart-btn" data-id="pd2" data-name="Nuvvulapodi" data-price="169"
+              data-image="images/nuvvulu.png" style="width: 100%;">
+              <i class="fas fa-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" data-category="powders">
+        <div class="product-img-wrap">
+          <div class="product-badges"><span class="badge"
+              style="background:var(--accent-yellow); color:var(--text-dark)">Powder</span></div>
+          <img src="images/powder_munagaku.png" alt="Munagaku Karampodi" class="product-img" loading="lazy">
+        </div>
+        <div class="product-content">
+          <h3 class="product-title">Munagaku Karampodi</h3>
+          <p class="product-desc">Authentic **subtle dark-green** Drumstick leaf spicy powder in a traditional bowl.</p>
+          <div class="product-price-row" style="flex-wrap: wrap; gap: 0.8rem;">
+            <select class="size-select"
+              style="padding: 0.3rem; border-radius: 4px; border: 1px solid #ccc; font-family: inherit;"
+              onchange="this.parentElement.querySelector('.product-price').textContent = '₹' + this.value;">
+              <option value="159">1/4 KG</option>
+              <option value="299">1/2 KG</option>
+              <option value="599">1 KG</option>
+            </select>
+            <span class="product-price">₹159</span>
+            <button class="btn btn-primary add-to-cart-btn" data-id="pd3" data-name="Munagaku Karampodi"
+              data-price="159" data-image="images/powder_munagaku.png" style="width: 100%;">
+              <i class="fas fa-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" data-category="powders">
+        <div class="product-img-wrap">
+          <div class="product-badges"><span class="badge"
+              style="background:var(--accent-yellow); color:var(--text-dark)">Powder</span></div>
+          <img src="images/karevepaku_karam.png" alt="Karevepaku Karam" class="product-img" loading="lazy">
+        </div>
+        <div class="product-content">
+          <h3 class="product-title">Karevepaku Karam</h3>
+          <p class="product-desc">Authentic homemade traditional Curry Leaf spicy powder in a bowl.</p>
+          <div class="product-price-row" style="flex-wrap: wrap; gap: 0.8rem;">
+            <select class="size-select"
+              style="padding: 0.3rem; border-radius: 4px; border: 1px solid #ccc; font-family: inherit;"
+              onchange="this.parentElement.querySelector('.product-price').textContent = '₹' + this.value;">
+              <option value="159">1/4 KG</option>
+              <option value="299">1/2 KG</option>
+              <option value="599">1 KG</option>
+            </select>
+            <span class="product-price">₹159</span>
+            <button class="btn btn-primary add-to-cart-btn" data-id="pd3_1" data-name="Karevepaku Karam"
+              data-price="159" data-image="images/karevepaku_karam.png" style="width: 100%;">
+              <i class="fas fa-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" data-category="powders">
+        <div class="product-img-wrap">
+          <div class="product-badges"><span class="badge"
+              style="background:var(--accent-yellow); color:var(--text-dark)">Powder</span></div>
+          <img src="images/garam_masala.png" alt="Garam Masala" class="product-img" loading="lazy">
+        </div>
+        <div class="product-content">
+          <h3 class="product-title">Garam Masala</h3>
+          <p class="product-desc">Authentic homemade Garam Masala mix for aromatic curries.</p>
+          <div class="product-price-row" style="flex-wrap: wrap; gap: 0.8rem;">
+            <select class="size-select"
+              style="padding: 0.3rem; border-radius: 4px; border: 1px solid #ccc; font-family: inherit;"
+              onchange="this.parentElement.querySelector('.product-price').textContent = '₹' + this.value;">
+              <option value="169">1/4 KG</option>
+              <option value="299">1/2 KG</option>
+              <option value="599">1 KG</option>
+            </select>
+            <span class="product-price">₹169</span>
+            <button class="btn btn-primary add-to-cart-btn" data-id="pd4" data-name="Garam Masala" data-price="169"
+              data-image="images/garam_masala.png" style="width: 100%;">
+              <i class="fas fa-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" data-category="powders">
+        <div class="product-img-wrap">
+          <div class="product-badges"><span class="badge"
+              style="background:var(--accent-yellow); color:var(--text-dark)">Powder</span></div>
+          <img src="images/ginger_garlic.png" alt="Ginger Garlic Paste" class="product-img" loading="lazy">
+        </div>
+        <div class="product-content">
+          <h3 class="product-title">Ginger Garlic Paste</h3>
+          <p class="product-desc">Freshly stone-ground ginger and garlic paste.</p>
+          <div class="product-price-row" style="flex-wrap: wrap; gap: 0.8rem;">
+            <select class="size-select"
+              style="padding: 0.3rem; border-radius: 4px; border: 1px solid #ccc; font-family: inherit;"
+              onchange="this.parentElement.querySelector('.product-price').textContent = '₹' + this.value;">
+              <option value="159">1/4 KG</option>
+              <option value="319">1/2 KG</option>
+              <option value="599">1 KG</option>
+            </select>
+            <span class="product-price">₹159</span>
+            <button class="btn btn-primary add-to-cart-btn" data-id="pd5" data-name="Ginger Garlic Paste"
+              data-price="159" data-image="images/ginger_garlic.png" style="width: 100%;">
+              <i class="fas fa-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" data-category="powders">
+        <div class="product-img-wrap">
+          <div class="product-badges"><span class="badge"
+              style="background:var(--accent-yellow); color:var(--text-dark)">Powder</span></div>
+          <img src="images/turmeric.png" alt="Turmeric Powder" class="product-img" loading="lazy">
+        </div>
+        <div class="product-content">
+          <h3 class="product-title">Turmeric Powder</h3>
+          <p class="product-desc">Extremely pure, naturally sourced Turmeric powder.</p>
+          <div class="product-price-row" style="flex-wrap: wrap; gap: 0.8rem;">
+            <select class="size-select"
+              style="padding: 0.3rem; border-radius: 4px; border: 1px solid #ccc; font-family: inherit;"
+              onchange="this.parentElement.querySelector('.product-price').textContent = '₹' + this.value;">
+              <option value="139">1/4 KG</option>
+              <option value="269">1/2 KG</option>
+              <option value="499">1 KG</option>
+            </select>
+            <span class="product-price">₹139</span>
+            <button class="btn btn-primary add-to-cart-btn" data-id="pd6" data-name="Turmeric Powder" data-price="139"
+              data-image="images/turmeric.png" style="width: 100%;">
+              <i class="fas fa-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" data-category="powders">
+        <div class="product-img-wrap">
+          <div class="product-badges"><span class="badge"
+              style="background:var(--accent-yellow); color:var(--text-dark)">Powder</span></div>
+          <img src="images/chilli.png" alt="Masala Karam" class="product-img" loading="lazy">
+        </div>
+        <div class="product-content">
+          <h3 class="product-title">Masala Karam</h3>
+          <p class="product-desc">Authentic homemade Masala Karam for that perfect spicy Andhra kick.</p>
+          <div class="product-price-row" style="flex-wrap: wrap; gap: 0.8rem;">
+            <select class="size-select"
+              style="padding: 0.3rem; border-radius: 4px; border: 1px solid #ccc; font-family: inherit;"
+              onchange="this.parentElement.querySelector('.product-price').textContent = '₹' + this.value;">
+              <option value="189">1/4 KG</option>
+              <option value="329">1/2 KG</option>
+              <option value="649">1 KG</option>
+            </select>
+            <span class="product-price">₹189</span>
+            <button class="btn btn-primary add-to-cart-btn" data-id="pd7" data-name="Masala Karam" data-price="189"
+              data-image="images/chilli.png" style="width: 100%;">
+              <i class="fas fa-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" data-category="powders">
+        <div class="product-img-wrap">
+          <div class="product-badges"><span class="badge"
+              style="background:var(--accent-yellow); color:var(--text-dark)">Powder</span></div>
+          <img src="images/fine_chilli_powder.png" alt="Fine Chilli Powder" class="product-img" loading="lazy">
+        </div>
+        <div class="product-content">
+          <h3 class="product-title">Chilli Powder</h3>
+          <p class="product-desc">Vibrant bright red Chilli powder with an **ultra-fine, smooth texture**.</p>
+          <div class="product-price-row" style="flex-wrap: wrap; gap: 0.8rem;">
+            <select class="size-select"
+              style="padding: 0.3rem; border-radius: 4px; border: 1px solid #ccc; font-family: inherit;"
+              onchange="this.parentElement.querySelector('.product-price').textContent = '₹' + this.value;">
+              <option value="179">1/4 KG</option>
+              <option value="319">1/2 KG</option>
+              <option value="599">1 KG</option>
+            </select>
+            <span class="product-price">₹179</span>
+            <button class="btn btn-primary add-to-cart-btn" data-id="pd8" data-name="Chilli Powder" data-price="179"
+              data-image="images/fine_chilli_powder.png" style="width: 100%;">
+              <i class="fas fa-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="product-card" data-category="powders">
+        <div class="product-img-wrap">
+          <div class="product-badges"><span class="badge"
+              style="background:var(--accent-yellow); color:var(--text-dark)">Powder</span></div>
+          <img src="images/biryani_masala.png" alt="Biryani Masala" class="product-img" loading="lazy">
+        </div>
+        <div class="product-content">
+          <h3 class="product-title">Biryani Masala</h3>
+          <p class="product-desc">Authentic Biryani Masala crafted intricately with premium whole spices.</p>
+          <div class="product-price-row" style="flex-wrap: wrap; gap: 0.8rem;">
+            <select class="size-select"
+              style="padding: 0.3rem; border-radius: 4px; border: 1px solid #ccc; font-family: inherit;"
+              onchange="this.parentElement.querySelector('.product-price').textContent = '₹' + this.value;">
+              <option value="199">150 Grams</option>
+              <option value="399">300 Grams</option>
+            </select>
+            <span class="product-price">₹199</span>
+            <button class="btn btn-primary add-to-cart-btn" data-id="pd10" data-name="Biryani Masala" data-price="199"
+              data-image="images/biryani_masala.png" style="width: 100%;">
+              <i class="fas fa-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="powders">
+        <div class="product-img-wrap">
+          <div class="product-badges"><span class="badge"
+              style="background:var(--accent-yellow); color:var(--text-dark)">Powder</span></div>
+          <img src="images/powder_flaxseed_v3.png" alt="Flaxseed Karam Podi" class="product-img" loading="lazy">
+        </div>
+        <div class="product-content">
+          <h3 class="product-title" style="color: var(--primary-red);">Flaxseed Karam Podi</h3>
+          <p class="product-desc">Authentic finely ground Flaxseed spice powder perfect for daily health and taste.</p>
+          <div class="product-price-row" style="flex-wrap: wrap; gap: 0.8rem;">
+            <select class="size-select"
+              style="padding: 0.3rem; border-radius: 4px; border: 1px solid #ccc; font-family: inherit;"
+              onchange="this.parentElement.querySelector('.product-price').textContent = '₹' + this.value;">
+              <option value="159">1/4 KG</option>
+              <option value="299">1/2 KG</option>
+              <option value="599">1 KG</option>
+            </select>
+            <span class="product-price">₹159</span>
+            <button class="btn btn-primary add-to-cart-btn" data-id="pd11" data-name="Flaxseed Karam Podi" data-price="159"
+              data-image="images/powder_flaxseed_v3.png" style="width: 100%;">
+              <i class="fas fa-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- HOME MADE SWEETS (2) -->
+      <div class="product-card" data-category="sweets">
+        <div class="product-img-wrap">
+          <div class="product-badges"><span class="badge" style="background:#e67e22; color:white">Sweets</span></div>
+          <img src="images/sweet_kajju_sunnunda.png" alt="Kajju Overloaded Sunnunda" class="product-img" loading="lazy">
+        </div>
+        <div class="product-content">
+          <h3 class="product-title">Kajju Overloaded Sunnunda</h3>
+          <p class="product-desc">Authentic traditional Sunnunda, rich in ghee with a **smooth texture and subtle cashew
+            bits**.</p>
+          <div class="product-price-row" style="flex-wrap: wrap; gap: 0.8rem;">
+            <select class="size-select"
+              style="padding: 0.3rem; border-radius: 4px; border: 1px solid #ccc; font-family: inherit;"
+              onchange="this.parentElement.querySelector('.product-price').textContent = '₹' + this.value;">
+              <option value="239">1/4 KG</option>
+              <option value="469">1/2 KG</option>
+              <option value="859">1 KG</option>
+            </select>
+            <span class="product-price">₹239</span>
+            <button class="btn btn-primary add-to-cart-btn" data-id="sw1" data-name="Kajju Overloaded Sunnunda"
+              data-price="239" data-image="images/sweet_kajju_sunnunda.png" style="width: 100%;">
+              <i class="fas fa-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" data-category="sweets">
+        <div class="product-img-wrap">
+          <div class="product-badges"><span class="badge" style="background:#e67e22; color:white">Sweets</span></div>
+          <img src="images/sweet_dry_fruit_laddu.png" alt="Dry Fruit Laddu" class="product-img" loading="lazy">
+        </div>
+        <div class="product-content">
+          <h3 class="product-title">Dry Fruit Laddu</h3>
+          <p class="product-desc">Nutrition-packed laddus with **pure ghee, honey, and premium almonds, cashews, and
+            pistachios**.</p>
+          <div class="product-price-row" style="flex-wrap: wrap; gap: 0.8rem;">
+            <select class="size-select"
+              style="padding: 0.3rem; border-radius: 4px; border: 1px solid #ccc; font-family: inherit;"
+              onchange="this.parentElement.querySelector('.product-price').textContent = '₹' + this.value;">
+              <option value="329">1/4 KG</option>
+              <option value="659">1/2 KG</option>
+              <option value="1299">1 KG</option>
+            </select>
+            <span class="product-price">₹329</span>
+            <button class="btn btn-primary add-to-cart-btn" data-id="sw2" data-name="Dry Fruit Laddu" data-price="329"
+              data-image="images/sweet_dry_fruit_laddu.png" style="width: 100%;">
+              <i class="fas fa-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" data-category="sweets">
+        <div class="product-img-wrap">
+          <div class="product-badges"><span class="badge" style="background:#e67e22; color:white">Sweets</span></div>
+          <img src="images/buffalo_ghee.png" alt="Buffalo Ghee" class="product-img" loading="lazy">
+        </div>
+        <div class="product-content">
+          <h3 class="product-title">Buffalo Ghee</h3>
+          <p class="product-desc">Pure, rich, and aromatic traditional Indian Buffalo Ghee for an authentic taste.</p>
+          <div class="product-price-row" style="flex-wrap: wrap; gap: 0.8rem;">
+            <select class="size-select"
+              style="padding: 0.3rem; border-radius: 4px; border: 1px solid #ccc; font-family: inherit;"
+              onchange="this.parentElement.querySelector('.product-price').textContent = '₹' + this.value;">
+              <option value="249">1/4 KG</option>
+              <option value="489">1/2 KG</option>
+              <option value="950">1 KG</option>
+            </select>
+            <span class="product-price">₹249</span>
+            <button class="btn btn-primary add-to-cart-btn" data-id="sw3" data-name="Buffalo Ghee" data-price="249"
+              data-image="images/buffalo_ghee.png" style="width: 100%;">
+              <i class="fas fa-plus"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3><i class="fas fa-pepper-hot"></i> Suravi Pickles</h3>
+          <p style="margin-top: 1rem; opacity: 0.8; line-height: 1.8;">Authentic, homely, trustworthy, and flavorful.
+            Bringing the rich culinary heritage of Andhra straight to your dining table.</p>
+          <div class="social-links">
+            <a href="https://www.instagram.com/suravi.pickles?utm_source=qr&igsh=MWhzczlmYW9jbWNleg==" class="social-icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@Suravipickles" class="social-icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">All Products</a></li>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Contact Info</h3>
+          <ul class="footer-links" style="opacity: 0.8;">
+            <li><i class="fas fa-user"></i> Name: P. Kavya Sri</li>
+            <li><i class="fas fa-map-marker-alt"></i> 66-3-12, marri chettu centre, ntr circle, patamata, vjw 520010
+            </li>
+            <li><i class="fas fa-phone"></i> +91 94943 45715</li>
+            <li><i class="fas fa-envelope"></i> suravipickles@gmail.com</li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright" style="border:none; padding-top: 0">
+        <p>&copy; 2026 Suravi Pickles. Crafted with love and spice.</p>
+        <p style="margin-top: 0.5rem; opacity: 0.7; font-size: 0.9rem;">
+          Website designed by 
+          <a href="https://www.instagram.com/funniii_media" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">@funniii_media</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/919494345715" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script src="js/cart.js" type="module"></script>
+  <script src="js/firebase-init.js" type="module"></script>
+  <script src="js/app.js" defer></script>
+</body>
+
+</html>
