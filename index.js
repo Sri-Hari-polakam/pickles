@@ -20,8 +20,8 @@ const ENV = process.env.PHONEPE_ENV || 'UAT';
 const CLIENT_URL = process.env.CLIENT_URL || 'http://127.0.0.1:5500';
 const BACKEND_URL = process.env.BACKEND_URL || `http://localhost:${PORT}`;
 
-const PHONEPE_HOST = ENV === 'PROD' 
-    ? 'https://api.phonepe.com/apis/hermes' 
+const PHONEPE_HOST = ENV === 'PROD'
+    ? 'https://api.phonepe.com/apis/hermes'
     : 'https://api-preprod.phonepe.com/apis/pg-sandbox';
 
 // File-based Database Setup
@@ -99,10 +99,10 @@ async function sendOrderEmail(order) {
 app.post('/create-payment', async (req, res) => {
     try {
         const { amount, name, phone, address, giftMessage, orderInfo } = req.body;
-        
+
         // Generate a unique transaction ID
         const transactionId = "TXN" + Date.now();
-        
+
         // Store order details
         saveOrder(transactionId, {
             name,
@@ -137,7 +137,7 @@ app.post('/create-payment', async (req, res) => {
 
         const payloadString = JSON.stringify(payload);
         const base64Payload = Buffer.from(payloadString).toString('base64');
-        
+
         const endpoint = "/pg/v1/pay";
         const stringToSign = base64Payload + endpoint + SALT_KEY;
         const checksum = crypto.createHash('sha256').update(stringToSign).digest('hex') + "###" + SALT_INDEX;
@@ -161,16 +161,16 @@ app.post('/create-payment', async (req, res) => {
     } catch (error) {
         const phonePeError = error.response?.data || error.message;
         console.error("Payment Creation Error:", phonePeError);
-        res.status(500).json({ 
-            success: false, 
-            message: "Payment Gateway Error: " + (phonePeError?.message || phonePeError || "Internal Server Error") 
+        res.status(500).json({
+            success: false,
+            message: "Payment Gateway Error: " + (phonePeError?.message || phonePeError || "Internal Server Error")
         });
     }
 });
 
 app.get('/payment-status/:transactionId', async (req, res) => {
     const { transactionId } = req.params;
-    
+
     try {
         const endpoint = `/pg/v1/status/${MERCHANT_ID}/${transactionId}`;
         const stringToSign = endpoint + SALT_KEY;
@@ -185,7 +185,7 @@ app.get('/payment-status/:transactionId', async (req, res) => {
         });
 
         const status = response.data.data.state; // COMPLETED, FAILED, PENDING
-        
+
         const order = getOrder(transactionId);
         if (order) {
             const oldStatus = order.status;
@@ -216,7 +216,7 @@ app.post('/api/callback', (req, res) => {
         const base64Response = req.body.response;
         const decodedResponse = Buffer.from(base64Response, 'base64').toString('utf-8');
         const responseObj = JSON.parse(decodedResponse);
-        
+
         const transactionId = responseObj.data.merchantTransactionId;
         const state = responseObj.data.state;
 
@@ -237,6 +237,17 @@ app.post('/api/callback', (req, res) => {
         console.error("Callback Error:", error.message);
         res.status(500).send("Error");
     }
+});
+
+app.get("/", (req, res) => {
+    res.send("Backend working 🚀");
+});
+
+app.get("/pay", (req, res) => {
+    res.json({
+        status: "success",
+        message: "Payment API ready"
+    });
 });
 
 app.listen(PORT, () => {
