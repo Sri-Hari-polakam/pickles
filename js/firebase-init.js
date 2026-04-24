@@ -4,23 +4,22 @@ import { getFirestore, addDoc, collection, serverTimestamp } from "https://www.g
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDXHP6CgHNOVavHfXO3YukRO5TXbyqUGT8",
-  authDomain: "saahnasa-dc137.firebaseapp.com",
-  projectId: "saahnasa-dc137",
-  storageBucket: "saahnasa-dc137.firebasestorage.app",
-  messagingSenderId: "485640400638",
-  appId: "1:485640400638:web:87386ae2c9eefff3c2bfaf",
-  measurementId: "G-19LBSBNPFB"
+  apiKey: "AIzaSyCBalfKQWpa3eBhwtKnRrkQ3bVC7V0WEw0",
+  authDomain: "pickles-6349b.firebaseapp.com",
+  projectId: "pickles-6349b",
+  storageBucket: "pickles-6349b.firebasestorage.app",
+  messagingSenderId: "167052303149",
+  appId: "1:167052303149:web:98ed99a51fa4690b4dd1a4",
+  measurementId: "G-QHF24HD7EY"
 };
 
-// Global flag
+// Global readiness flag
 window.firebaseReadyFlag = false;
 
-// Initialize Firebase immediately
+// Initialize Firebase immediately on page load
 (async () => {
-  console.log("Firebase: Initializing on page load...");
-  let app;
   try {
+    let app;
     if (getApps().length === 0) {
       app = initializeApp(firebaseConfig);
     } else {
@@ -29,26 +28,21 @@ window.firebaseReadyFlag = false;
     
     const db = getFirestore(app);
     
-    // Set globals for non-module scripts
+    // Set globals for app.js
     window.firebase_app = app;
     window.firebase_db = db;
     window.firestore = { collection, addDoc, serverTimestamp };
     
     try {
-      getAnalytics(app);
+      window.firebase_analytics = getAnalytics(app);
     } catch (e) {
-      console.warn("Analytics error:", e.message);
+      // Silent fail for analytics
     }
 
     window.firebaseReadyFlag = true;
-    console.log("Firebase: Ready flag set to true.");
-    
-    // Also keep the promise for internal use if needed
-    if (window.resolveFirebase) window.resolveFirebase();
-    
+    console.log("Firebase: Connected");
   } catch (error) {
-    console.error("Firebase: Initialization failed!", error);
+    // Silent fail as requested: "Do NOT show any Firebase loading errors"
+    console.warn("Firebase: Delayed initialization");
   }
 })();
-
-export { firebaseConfig };

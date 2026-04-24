@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Confirmed | Suravi Pickles</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <style>
+    :root {
+      --primary-red: #8b0000;
+      --accent-yellow: #ffcc00;
+      --success-green: #2ecc71;
+      --bg-gradient: linear-gradient(135deg, #fff5f5 0%, #fffbf0 100%);
+      --glass: rgba(255, 255, 255, 0.9);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-gradient);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .success-card {
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 24px;
+      padding: 3rem 2rem;
+      max-width: 550px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(139, 0, 0, 0.08);
+      animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .icon-wrapper {
+      width: 100px;
+      height: 100px;
+      background: #e8f5e9;
+      color: var(--success-green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      margin: 0 auto 1.5rem;
+      position: relative;
+      animation: scaleIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes scaleIn {
+      from { transform: scale(0); }
+      to { transform: scale(1); }
+    }
+
+    .icon-wrapper::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 4px solid var(--success-green);
+      animation: ripple 1.5s infinite;
+    }
+
+    @keyframes ripple {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(1.4); opacity: 0; }
+    }
+
+    .success-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.5px;
+    }
+
+    .success-msg {
+      color: #4a4a4a;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .order-summary {
+      background: #f8f9fa;
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      border: 1px dashed #ddd;
+    }
+
+    .order-id-label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #888;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .order-id-value {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--primary-red);
+    }
+
+    .whats-next {
+      text-align: left;
+      margin-bottom: 2.5rem;
+    }
+
+    .whats-next h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    .step {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+      align-items: center;
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    .step i {
+      color: var(--primary-red);
+      width: 20px;
+      text-align: center;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .btn-primary-order {
+      background: var(--primary-red);
+      color: white;
+      padding: 1.1rem;
+      border-radius: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary-order:hover {
+      background: #700000;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(139, 0, 0, 0.2);
+    }
+
+    .btn-secondary-order {
+      background: transparent;
+      color: #666;
+      padding: 1rem;
+      border-radius: 12px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary-order:hover {
+      color: #333;
+      background: rgba(0,0,0,0.05);
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 480px) {
+      .success-card {
+        padding: 2rem 1.5rem;
+      }
+      .success-title {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="success-card">
+    <div class="icon-wrapper">
+      <i class="fas fa-check"></i>
+    </div>
+    
+    <h1 class="success-title">Order Confirmed!</h1>
+    <p class="success-msg">Thank you for choosing Suravi Pickles. Your traditional flavors are being prepared with love and care.</p>
+    
+    <div class="order-summary">
+      <span class="order-id-label">Tracking Order ID</span>
+      <div class="order-id-value">#SP-<span id="display-order-id"></span></div>
+    </div>
+
+    <div class="whats-next">
+      <h3>What Happens Next?</h3>
+      <div class="step">
+        <i class="fas fa-envelope"></i>
+        <span>Order confirmation details sent to your phone.</span>
+      </div>
+      <div class="step">
+        <i class="fas fa-box-open"></i>
+        <span>We'll pack your pickles in 24-48 hours.</span>
+      </div>
+      <div class="step">
+        <i class="fas fa-truck"></i>
+        <span>Tracking link will be shared via SMS/WhatsApp.</span>
+      </div>
+    </div>
+
+    <div class="btn-group">
+      <a href="index.html" class="btn-primary-order">
+        <i class="fas fa-home"></i> Back to Home
+      </a>
+      <a href="products.html" class="btn-secondary-order">Continue Shopping</a>
+    </div>
+  </div>
+
+  <script type="module">
+    import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
+    // Confetti celebration
+    const end = Date.now() + (3 * 1000);
+    const colors = ['#8b0000', '#ffcc00', '#ffffff'];
+
+    (function frame() {
+      if (typeof confetti !== 'undefined') {
+        confetti({
+          particleCount: 3,
+          angle: 60,
+          spread: 55,
+          origin: { x: 0 },
+          colors: colors
+        });
+        confetti({
+          particleCount: 3,
+          angle: 120,
+          spread: 55,
+          origin: { x: 1 },
+          colors: colors
+        });
+      }
+
+      if (Date.now() < end) {
+        requestAnimationFrame(frame);
+      }
+    }());
+
+    // 1. Initialize Firebase:
+    const firebaseConfig = {
+      apiKey: "AIzaSyCBalfKQWpa3eBhwtKnRrkQ3bVC7V0WEw0",
+      authDomain: "pickles-6349b.firebaseapp.com",
+      projectId: "pickles-6349b",
+      storageBucket: "pickles-6349b.firebasestorage.app",
+      messagingSenderId: "167052303149",
+      appId: "1:167052303149:web:98ed99a51fa4690b4dd1a4",
+      measurementId: "G-QHF24HD7EY"
+    };
+
+    const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
+    const db = getFirestore(app);
+
+    // UI: Generate a random order ID for display
+    const displayId = Math.floor(100000 + Math.random() * 900000);
+    const orderIdSpan = document.getElementById('display-order-id');
+    if (orderIdSpan) orderIdSpan.textContent = displayId;
+
+    // 2. On page load of /payment-success ONLY:
+    async function saveOrder() {
+      // Get cart data:
+      // Note: Checking both 'cart' (requested) and 'suravi_pickles_cart' (project current) to ensure functionality
+      const cartData = localStorage.getItem("cart") || localStorage.getItem("suravi_pickles_cart");
+      const cart = JSON.parse(cartData || "[]");
+
+      // If cart is empty: -> Do nothing
+      if (cart.length === 0) {
+        return;
+      }
+
+      try {
+        // If cart has items: -> Save order:
+        await addDoc(collection(db, "orders"), {
+          items: cart,
+          status: "success",
+          createdAt: new Date(),
+          orderId: `SP-${displayId}`
+        });
+
+        // 3. After saving: -> Clear cart
+        localStorage.removeItem("cart");
+        localStorage.removeItem("suravi_pickles_cart");
+
+        // -> Show message:
+        const msgContainer = document.querySelector('.success-msg');
+        if (msgContainer) {
+          msgContainer.innerHTML = '<span style="color: var(--success-green); font-weight: 600; display: block; margin-bottom: 0.5rem;"><i class="fas fa-check-circle"></i> Order placed successfully</span>' + msgContainer.innerHTML;
+        }
+
+        console.log("Order saved to Firebase and cart cleared.");
+      } catch (e) {
+        // Ensure no loading errors are shown to user
+        console.error("Firebase save error:", e);
+      }
+    }
+
+    saveOrder();
+  </script>
+</body>
+</html>

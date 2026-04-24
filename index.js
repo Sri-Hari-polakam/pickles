@@ -17,8 +17,8 @@ const MERCHANT_ID = process.env.PHONEPE_MERCHANT_ID;
 const SALT_KEY = process.env.PHONEPE_SALT_KEY;
 const SALT_INDEX = process.env.PHONEPE_SALT_INDEX || 1;
 const ENV = process.env.PHONEPE_ENV || 'UAT';
-const CLIENT_URL = process.env.CLIENT_URL || 'http://127.0.0.1:5500';
-const BACKEND_URL = process.env.BACKEND_URL || `pickles-production-d378.up.railway.app${PORT}`;
+const CLIENT_URL = process.env.CLIENT_URL || 'https://suravipickles.vercel.app';
+const BACKEND_URL = process.env.BACKEND_URL || 'https://pickles-production-d378.up.railway.app';
 
 const PHONEPE_HOST = ENV === 'PROD'
     ? 'https://api.phonepe.com/apis/hermes'
@@ -199,9 +199,9 @@ app.get('/payment-status/:transactionId', async (req, res) => {
         }
 
         if (status === 'COMPLETED') {
-            res.redirect(`${CLIENT_URL}/success.html?txnId=${transactionId}`);
+            res.redirect(`${CLIENT_URL}/payment-success?txnId=${transactionId}`);
         } else {
-            res.redirect(`${CLIENT_URL}/failure.html?txnId=${transactionId}`);
+            res.redirect(`${CLIENT_URL}/failure?txnId=${transactionId}`);
         }
     } catch (error) {
         console.error("Status Check Error:", error.response?.data || error.message);
@@ -244,7 +244,8 @@ app.get("/", (req, res) => {
 });
 
 app.get("/pay", (req, res) => {
-    const fakePaymentUrl = "https://example.com/payment-success";
+    const fakePaymentUrl = "suravipickles.vercel.app/payment-success";
+    console.log("Firebase running");
 
     res.json({
         status: "success",

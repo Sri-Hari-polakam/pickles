@@ -164,33 +164,33 @@ const initApp = () => {
       const paymentMethod = formData.get('payment');
       
       if (paymentMethod === 'phonepe') {
-        console.log("Suravi App: Initiating PhonePe payment redirect...");
+        console.log("Suravi App: Initiating PhonePe payment flow...");
         try {
+          // 1. Save to Firestore if ready
+          // Order saving is now handled on the payment-success page as per requirements
+          console.log("Suravi App: Proceeding to payment gateway...");
+
+          // 2. Call Backend for Redirect
           const response = await fetch('https://pickles-production-d378.up.railway.app/pay');
           const data = await response.json();
           
-          if (data && data.paymentUrl) {
-            // CASE 1: Redirect flow
-            if (data.paymentUrl.includes('payment-success')) {
-              alert("Order placed successfully");
-              localStorage.removeItem('suravi_pickles_cart');
-              updateCartCountUI();
-            }
-            window.location.href = data.paymentUrl;
-          } else if (data && data.message) {
-            // CASE 2: Message/Alert flow
-            alert(data.message);
-            if (data.status === "success") {
-              localStorage.removeItem('suravi_pickles_cart');
-              updateCartCountUI();
-            }
-          } else {
-            // FALLBACK
-            alert("Unexpected response from server");
+          let targetUrl = data.paymentUrl;
+          const fallbackUrl = 'https://suravipickles.vercel.app/payment-success';
+          
+          // Requirement: Ignore any paymentUrl that contains "example.com"
+          // Requirement: Force redirect to: https://suravipickles.vercel.app/payment-success
+          if (!targetUrl || targetUrl.includes('example.com')) {
+            targetUrl = fallbackUrl;
+          } else if (!targetUrl.startsWith('http') && !targetUrl.startsWith('//')) {
+            // Ensure protocol for URLs like "suravipickles.vercel.app/..."
+            targetUrl = 'https://' + targetUrl;
           }
+          
+          window.location.href = targetUrl;
         } catch (error) {
           console.error("Suravi App: Payment process error:", error);
-          alert("Error connecting to payment gateway");
+          // Requirement: Do NOT show any error messages, and ensure redirect to success
+          window.location.href = 'https://suravipickles.vercel.app/payment-success';
         }
       } else {
         // Direct UPI or other - trigger original form logic

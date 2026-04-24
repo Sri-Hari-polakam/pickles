@@ -393,11 +393,9 @@ class CartManager {
               alert("Order placed successfully via Cash on Delivery! We will contact you shortly to confirm your order.");
             }
             
-            this.items = [];
-            this.save();
             window.paymentConfirmed = false; // Reset state
             setTimeout(() => {
-              window.location.href = "index.html";
+              window.location.href = "payment-success";
             }, 500);
           })
           .catch(error => {

@@ -19,7 +19,7 @@ const MERCHANT_ID = process.env.PHONEPE_MERCHANT_ID || "PGTESTPAYUAT86";
 const SALT_KEY = process.env.PHONEPE_SALT_KEY || "96434309-7796-489d-8924-ab56988a6076";
 const SALT_INDEX = process.env.PHONEPE_SALT_INDEX || 1;
 const ENV = process.env.PHONEPE_ENV || 'UAT';
-const CLIENT_URL = process.env.CLIENT_URL || 'https://suravipickles.web.app';
+const CLIENT_URL = process.env.CLIENT_URL || 'https://suravipickles.vercel.app';
 // The backend URL will be routed via Firebase Hosting rewrites
 const BACKEND_URL = `${CLIENT_URL}/api`;
 
@@ -135,9 +135,9 @@ app.get('/payment-status/:transactionId', async (req, res) => {
         await updateOrderStatus(transactionId, status);
 
         if (status === 'COMPLETED') {
-            res.redirect(`${CLIENT_URL}/success.html?txnId=${transactionId}`);
+            res.redirect(`${CLIENT_URL}/payment-success?txnId=${transactionId}`);
         } else {
-            res.redirect(`${CLIENT_URL}/failure.html?txnId=${transactionId}`);
+            res.redirect(`${CLIENT_URL}/failure?txnId=${transactionId}`);
         }
     } catch (error) {
         console.error("Status Check Error:", error.response?.data || error.message);
