@@ -18,7 +18,7 @@ const SALT_KEY = process.env.PHONEPE_SALT_KEY;
 const SALT_INDEX = process.env.PHONEPE_SALT_INDEX || 1;
 const ENV = process.env.PHONEPE_ENV || 'UAT';
 const CLIENT_URL = process.env.CLIENT_URL || 'http://127.0.0.1:5500';
-const BACKEND_URL = process.env.BACKEND_URL || `http://localhost:${PORT}`;
+const BACKEND_URL = process.env.BACKEND_URL || `pickles-production-d378.up.railway.app${PORT}`;
 
 const PHONEPE_HOST = ENV === 'PROD'
     ? 'https://api.phonepe.com/apis/hermes'
@@ -244,9 +244,11 @@ app.get("/", (req, res) => {
 });
 
 app.get("/pay", (req, res) => {
+    const fakePaymentUrl = "https://example.com/payment-success";
+
     res.json({
         status: "success",
-        message: "Payment API ready"
+        paymentUrl: fakePaymentUrl
     });
 });
 

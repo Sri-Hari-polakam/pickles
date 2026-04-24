@@ -1,6 +1,6 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
-import { getFirestore, addDoc, collection } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+import { getFirestore, addDoc, collection, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -13,11 +13,42 @@ const firebaseConfig = {
   measurementId: "G-19LBSBNPFB"
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-const db = getFirestore(app);
+// Global flag
+window.firebaseReadyFlag = false;
 
-console.log("Firebase initialized successfully");
+// Initialize Firebase immediately
+(async () => {
+  console.log("Firebase: Initializing on page load...");
+  let app;
+  try {
+    if (getApps().length === 0) {
+      app = initializeApp(firebaseConfig);
+    } else {
+      app = getApp();
+    }
+    
+    const db = getFirestore(app);
+    
+    // Set globals for non-module scripts
+    window.firebase_app = app;
+    window.firebase_db = db;
+    window.firestore = { collection, addDoc, serverTimestamp };
+    
+    try {
+      getAnalytics(app);
+    } catch (e) {
+      console.warn("Analytics error:", e.message);
+    }
 
-export { app, analytics, db };
+    window.firebaseReadyFlag = true;
+    console.log("Firebase: Ready flag set to true.");
+    
+    // Also keep the promise for internal use if needed
+    if (window.resolveFirebase) window.resolveFirebase();
+    
+  } catch (error) {
+    console.error("Firebase: Initialization failed!", error);
+  }
+})();
+
+export { firebaseConfig };

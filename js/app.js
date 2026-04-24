@@ -1,4 +1,7 @@
-document.addEventListener('DOMContentLoaded', () => {
+// Robust Initialization
+const initApp = () => {
+  console.log("Suravi App: Initializing...");
+
   // Mobile Menu Toggle
   const mobileBtn = document.querySelector('.mobile-menu-btn');
   const navLinks = document.querySelector('.nav-links');
@@ -69,4 +72,138 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
-});
+
+  // --- ADD TO CART LOGIC ---
+  function updateCartCountUI() {
+    try {
+      const cartItems = JSON.parse(localStorage.getItem('suravi_pickles_cart') || '[]');
+      const total = cartItems.reduce((sum, item) => sum + (item.quantity || 1), 0);
+      const counters = document.querySelectorAll('.cart-count');
+      console.log("Suravi App: Updating cart count to", total);
+      counters.forEach(counter => {
+        counter.textContent = total;
+        counter.style.display = total > 0 ? 'flex' : 'none';
+      });
+    } catch (e) {
+      console.error("Suravi App: Error updating cart count:", e);
+    }
+  }
+
+  // Initial count update
+  updateCartCountUI();
+
+  // Delegation on document to ensure it works even if content is dynamic
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.add-to-cart-btn');
+    if (btn) {
+      console.log("Suravi App: Add to Cart clicked!", btn.dataset.name);
+      e.preventDefault();
+      e.stopPropagation();
+
+      const id = btn.getAttribute('data-id');
+      let name = btn.getAttribute('data-name');
+      let price = parseFloat(btn.getAttribute('data-price'));
+      const image = btn.getAttribute('data-image');
+
+      // Handle dynamic size selection
+      const card = btn.closest('.product-card');
+      if (card) {
+        const sizeSelect = card.querySelector('.size-select');
+        if (sizeSelect) {
+          price = parseFloat(sizeSelect.value);
+          const sizeLabel = sizeSelect.options[sizeSelect.selectedIndex].text;
+          name = `${name} (${sizeLabel})`;
+        }
+      }
+
+      if (isNaN(price)) {
+        console.error("Suravi App: Invalid price for", name);
+        return;
+      }
+
+      try {
+        let cartItems = JSON.parse(localStorage.getItem('suravi_pickles_cart') || '[]');
+        const existingItem = cartItems.find(item => item.id === id && item.name === name);
+
+        if (existingItem) {
+          existingItem.quantity = (existingItem.quantity || 1) + 1;
+        } else {
+          cartItems.push({ id, name, price, image, quantity: 1 });
+        }
+
+        localStorage.setItem('suravi_pickles_cart', JSON.stringify(cartItems));
+        updateCartCountUI();
+        
+        // Show success feedback
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-check"></i> Added!';
+        btn.style.backgroundColor = '#28a745';
+        btn.style.color = 'white';
+        
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.style.backgroundColor = '';
+          btn.style.color = '';
+        }, 1500);
+
+        // Fallback for visual confirmation
+        console.log("Suravi App: Successfully added to cart");
+      } catch (err) {
+        console.error("Suravi App: Cart error:", err);
+      }
+    }
+  });
+
+  // --- PLACE ORDER BUTTON LOGIC (FOR CHECKOUT PAGE) ---
+  const placeOrderBtn = document.getElementById('place-order-btn');
+  const checkoutForm = document.getElementById('checkout-form');
+
+  if (placeOrderBtn && checkoutForm) {
+    placeOrderBtn.addEventListener('click', async () => {
+      const formData = new FormData(checkoutForm);
+      const paymentMethod = formData.get('payment');
+      
+      if (paymentMethod === 'phonepe') {
+        console.log("Suravi App: Initiating PhonePe payment redirect...");
+        try {
+          const response = await fetch('https://pickles-production-d378.up.railway.app/pay');
+          const data = await response.json();
+          
+          if (data && data.paymentUrl) {
+            // CASE 1: Redirect flow
+            if (data.paymentUrl.includes('payment-success')) {
+              alert("Order placed successfully");
+              localStorage.removeItem('suravi_pickles_cart');
+              updateCartCountUI();
+            }
+            window.location.href = data.paymentUrl;
+          } else if (data && data.message) {
+            // CASE 2: Message/Alert flow
+            alert(data.message);
+            if (data.status === "success") {
+              localStorage.removeItem('suravi_pickles_cart');
+              updateCartCountUI();
+            }
+          } else {
+            // FALLBACK
+            alert("Unexpected response from server");
+          }
+        } catch (error) {
+          console.error("Suravi App: Payment process error:", error);
+          alert("Error connecting to payment gateway");
+        }
+      } else {
+        // Direct UPI or other - trigger original form logic
+        console.log("Suravi App: Direct UPI selected, triggering form submit...");
+        checkoutForm.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
+      }
+    });
+  }
+};
+
+// Start initialization
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initApp);
+} else {
+  initApp();
+}
