@@ -17,7 +17,7 @@ const MERCHANT_ID = process.env.PHONEPE_MERCHANT_ID;
 const SALT_KEY = process.env.PHONEPE_SALT_KEY;
 const SALT_INDEX = process.env.PHONEPE_SALT_INDEX || 1;
 const ENV = process.env.PHONEPE_ENV || 'UAT';
-const CLIENT_URL = process.env.CLIENT_URL || 'https://suravipickles.vercel.app';
+const CLIENT_URL = 'https://pickles-gilt.vercel.app';
 const BACKEND_URL = process.env.BACKEND_URL || 'https://pickles-production-d378.up.railway.app';
 
 const PHONEPE_HOST = ENV === 'PROD'
@@ -244,7 +244,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/pay", (req, res) => {
-    const fakePaymentUrl = "suravipickles.vercel.app/payment-success";
+    const fakePaymentUrl = "pickles-gilt.vercel.app/payment-success";
     console.log("Firebase running");
 
     res.json({

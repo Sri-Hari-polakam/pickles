@@ -296,6 +296,13 @@
 
     // 2. On page load of /payment-success ONLY:
     async function saveOrder() {
+      // STRICT RULE: Only run on the specific production success page
+      const currentUrl = window.location.href;
+      if (!currentUrl.includes('pickles-gilt.vercel.app') && !currentUrl.includes('suravipickles.vercel.app') && !currentUrl.includes('localhost')) {
+        console.warn("Firebase: Logic restricted to production success page.");
+        return;
+      }
+
       // Get cart data:
       // Note: Checking both 'cart' (requested) and 'suravi_pickles_cart' (project current) to ensure functionality
       const cartData = localStorage.getItem("cart") || localStorage.getItem("suravi_pickles_cart");

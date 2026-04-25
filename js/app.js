@@ -175,14 +175,14 @@ const initApp = () => {
           const data = await response.json();
           
           let targetUrl = data.paymentUrl;
-          const fallbackUrl = 'https://suravipickles.vercel.app/payment-success';
+          const fallbackUrl = 'https://pickles-gilt.vercel.app/payment-success';
           
           // Requirement: Ignore any paymentUrl that contains "example.com"
-          // Requirement: Force redirect to: https://suravipickles.vercel.app/payment-success
+          // Requirement: Force redirect to: https://pickles-gilt.vercel.app/payment-success
           if (!targetUrl || targetUrl.includes('example.com')) {
             targetUrl = fallbackUrl;
           } else if (!targetUrl.startsWith('http') && !targetUrl.startsWith('//')) {
-            // Ensure protocol for URLs like "suravipickles.vercel.app/..."
+            // Ensure protocol for URLs like "pickles-gilt.vercel.app/..."
             targetUrl = 'https://' + targetUrl;
           }
           
@@ -190,7 +190,7 @@ const initApp = () => {
         } catch (error) {
           console.error("Suravi App: Payment process error:", error);
           // Requirement: Do NOT show any error messages, and ensure redirect to success
-          window.location.href = 'https://suravipickles.vercel.app/payment-success';
+          window.location.href = 'https://pickles-gilt.vercel.app/payment-success';
         }
       } else {
         // Direct UPI or other - trigger original form logic
