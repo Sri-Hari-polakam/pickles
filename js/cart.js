@@ -395,7 +395,7 @@ class CartManager {
             
             window.paymentConfirmed = false; // Reset state
             setTimeout(() => {
-              window.location.href = "payment-success";
+              window.location.href = "payment-success.html";
             }, 500);
           })
           .catch(error => {

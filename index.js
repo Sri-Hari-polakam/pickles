@@ -199,7 +199,7 @@ app.get('/payment-status/:transactionId', async (req, res) => {
         }
 
         if (status === 'COMPLETED') {
-            res.redirect(`${CLIENT_URL}/payment-success?txnId=${transactionId}`);
+            res.redirect(`${CLIENT_URL}/payment-success.html?txnId=${transactionId}`);
         } else {
             res.redirect(`${CLIENT_URL}/failure?txnId=${transactionId}`);
         }
@@ -244,7 +244,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/pay", (req, res) => {
-    const fakePaymentUrl = "pickles-gilt.vercel.app/payment-success";
+    const fakePaymentUrl = "pickles-gilt.vercel.app/payment-success.html";
     console.log("Firebase running");
 
     res.json({
