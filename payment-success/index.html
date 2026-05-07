@@ -304,27 +304,35 @@
       }
 
       // Get cart data:
-      // Note: Checking both 'cart' (requested) and 'suravi_pickles_cart' (project current) to ensure functionality
       const cartData = localStorage.getItem("cart") || localStorage.getItem("suravi_pickles_cart");
       const cart = JSON.parse(cartData || "[]");
+
+      // Get customer data:
+      const customer = JSON.parse(localStorage.getItem("customer")) || {};
 
       // If cart is empty: -> Do nothing
       if (cart.length === 0) {
         return;
       }
 
+      // Calculate total amount
+      const totalAmount = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+
       try {
         // If cart has items: -> Save order:
         await addDoc(collection(db, "orders"), {
+          customer: customer,
           items: cart,
+          amount: totalAmount,
           status: "success",
           createdAt: new Date(),
           orderId: `SP-${displayId}`
         });
 
-        // 3. After saving: -> Clear cart
+        // 3. After saving: -> Clear cart and customer data
         localStorage.removeItem("cart");
         localStorage.removeItem("suravi_pickles_cart");
+        localStorage.removeItem("customer");
 
         // -> Show message:
         const msgContainer = document.querySelector('.success-msg');
@@ -332,7 +340,7 @@
           msgContainer.innerHTML = '<span style="color: var(--success-green); font-weight: 600; display: block; margin-bottom: 0.5rem;"><i class="fas fa-check-circle"></i> Order placed successfully</span>' + msgContainer.innerHTML;
         }
 
-        console.log("Order saved to Firebase and cart cleared.");
+        console.log("Order saved to Firebase and data cleared.");
       } catch (e) {
         // Ensure no loading errors are shown to user
         console.error("Firebase save error:", e);

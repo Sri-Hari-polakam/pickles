@@ -165,6 +165,16 @@ const initApp = () => {
       
       if (paymentMethod === 'phonepe') {
         console.log("Suravi App: Initiating PhonePe payment flow...");
+        
+        // Save customer data to localStorage
+        const customerData = {
+          firstName: formData.get('firstName'),
+          lastName: formData.get('lastName'),
+          phone: formData.get('phone'),
+          address: formData.get('address')
+        };
+        localStorage.setItem("customer", JSON.stringify(customerData));
+        
         try {
           // 1. Save to Firestore if ready
           // Order saving is now handled on the payment-success page as per requirements
